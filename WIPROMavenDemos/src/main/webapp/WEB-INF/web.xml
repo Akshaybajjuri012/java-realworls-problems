@@ -1,0 +1,29 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- First Servlet -->
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>myservletdemo.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Second Servlet -->
+  <servlet>
+    <servlet-name>FormValues</servlet-name>
+    <servlet-class>myservletdemos.FormValues</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormValues</servlet-name>
+    <url-pattern>/FormValues</url-pattern>
+  </servlet-mapping>
+
+</web-app>

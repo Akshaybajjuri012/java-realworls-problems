@@ -8,16 +8,15 @@ public class EmployeeDemo {
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 Statement stmt = conn.createStatement()) {
 
-               // 1. Create table if it doesn't exist
                String createTable = "CREATE TABLE IF NOT EXISTS employee (" +
                        "employeeId VARCHAR(10) PRIMARY KEY," +
                        "name VARCHAR(100)," +
                        "yearOfBirth INT)";
                stmt.executeUpdate(createTable);
 
-               // 2. Insert sample data (only if not already inserted)
-               stmt.executeUpdate("INSERT IGNORE INTO employee VALUES ('81-F-112', 'Akshay', 1985)");
-               stmt.executeUpdate("INSERT IGNORE INTO employee VALUES ('79-S-254', 'Neha', 1982)");
+               
+               stmt.executeUpdate("INSERT IGNORE INTO employee VALUES ('81-M-112', 'Akshay', 1985)");
+               stmt.executeUpdate("INSERT IGNORE INTO employee VALUES ('79-M-254', 'Neha', 1982)");
                ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
 
                while (rs.next()) {
@@ -25,7 +24,6 @@ public class EmployeeDemo {
                    String name = rs.getString("name");
                    int yob = rs.getInt("yearOfBirth");
 
-                   // Parse employeeId
                    String[] parts = empId.split("-");
                    if (parts.length == 3) {
                        String joinYear = "19" + parts[0];
@@ -52,3 +50,22 @@ public class EmployeeDemo {
 
 
 }
+
+/*
+
+📋 Employee Info:
+ID           : 79-M-254
+Name         : Neha
+Year of Birth: 1982
+Joined Year  : 1979
+Designation  : Staff
+Emp Number   : 254
+
+📋 Employee Info:
+ID           : 81-M-112
+Name         : Akshay
+Year of Birth: 1985
+Joined Year  : 1981
+Designation  : Faculty
+Emp Number   : 112
+*/

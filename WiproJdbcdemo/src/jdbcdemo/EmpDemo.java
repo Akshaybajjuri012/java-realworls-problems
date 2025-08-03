@@ -1,6 +1,7 @@
 package jdbcdemo;
 import java.sql.*;
 public class EmpDemo {
+	@SuppressWarnings("serial")
 	 static class LowSalException extends Exception {
 	        public LowSalException(String message) {
 	            super(message);

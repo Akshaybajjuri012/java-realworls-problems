@@ -1,0 +1,120 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+ 
+  <servlet>
+    <servlet-name>StudentRegisterForm</servlet-name>
+    <servlet-class>StudentRegisterForm</servlet-class>
+  </servlet>
+
+  <servlet>
+  <servlet-name>FirstServlet</servlet-name>
+  <servlet-class>servletsdemos.Firstservlet</servlet-class>
+</servlet>
+
+  <servlet>
+    <servlet-name>SecondServlet</servlet-name>
+    <servlet-class>servletsdemos.SecondServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>servletsdemos.ProductServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>servletsdemos.OrderServlet</servlet-class>
+  </servlet>
+
+<servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servletsdemos.LoginServlet</servlet-class>
+  </servlet>
+  
+    <servlet>
+    <servlet-name>BalanceServlet</servlet-name>
+    <servlet-class>servletsdemos.BalanceServlet</servlet-class>
+  </servlet>
+  
+    <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>servletsdemos.AddToCartServlet</servlet-class>
+  </servlet>
+
+ 
+  <servlet>
+    <servlet-name>ViewCartServlet</servlet-name>
+    <servlet-class>servletsdemos.ViewCartServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>servletsdemos.LogoutServlet</servlet-class>
+  </servlet> 
+  
+  <servlet>
+  <servlet-name>VendorListServlet</servlet-name>
+  <servlet-class>servletsdemos.VendorListServlet</servlet-class>
+</servlet>
+  
+  <servlet-mapping>
+    <servlet-name>StudentRegisterForm</servlet-name>
+    <url-pattern>/studentRegister</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SecondServlet</servlet-name>
+    <url-pattern>/SecondServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ProductServlet</servlet-name>
+    <url-pattern>/ProductServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>BalanceServlet</servlet-name>
+    <url-pattern>/BalanceServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+
+ 
+  <servlet-mapping>
+    <servlet-name>ViewCartServlet</servlet-name>
+    <url-pattern>/ViewCartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>VendorListServlet</servlet-name>
+  <url-pattern>/vendors</url-pattern>
+</servlet-mapping>
+
+</web-app>

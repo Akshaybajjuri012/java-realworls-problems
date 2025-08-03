@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Items</title>
+</head>
+<body>
+  <h2>Select an Item to Add to Cart</h2>
+  <form action="AddToCartServlet" method="post">
+    <label><input type="radio" name="item" value="Laptop"> Laptop</label><br>
+    <label><input type="radio" name="item" value="Phone"> Phone</label><br>
+    <label><input type="radio" name="item" value="Tablet"> Tablet</label><br><br>
+
+    <input type="submit" value="Add to Cart">
+  </form>
+
+  <br>
+  <a href="ViewCartServlet">View Cart</a>
+</body>
+</html>

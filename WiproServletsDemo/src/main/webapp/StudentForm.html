@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form action="StudentRegisterForm" method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Email: <input type="email" name="email" required><br><br>
+        Gender: 
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br>
+        Course:
+        <select name="course">
+            <option value="B.Tech">B.Tech</option>
+            <option value="MCA">MCA</option>
+            <option value="MBA">MBA</option>
+        </select><br><br>
+        Remarks: <br>
+        <textarea name="remarks" rows="4" cols="40"></textarea><br><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

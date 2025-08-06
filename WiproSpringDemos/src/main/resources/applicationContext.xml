@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Problem 1: Bank and Account Beans -->
+    <bean id="bankBean" class="springprograms.Bank">
+        <constructor-arg value="101" />
+        <constructor-arg value="SBI" />
+    </bean>
+
+    <bean id="accountBean" class="springprograms.Account">
+        <constructor-arg value="123456789" />
+        <constructor-arg value="Akshay" />
+        <constructor-arg value="5000.0" />
+        <constructor-arg ref="bankBean" />
+    </bean>
+
+    <!-- Problem 2: Freshman and DormRoom Beans -->
+    <bean id="freshmanBean" class="springprograms.Freshman">
+        <property name="name" value="Ravi" />
+        <property name="room" ref="dormRoomBean" />
+    </bean>
+
+    <bean id="dormRoomBean" class="springprograms.DormRoom">
+        <constructor-arg value="204" />
+        <constructor-arg value="Maple Hall" />
+    </bean>
+
+    <!-- Problem 4: AccountProp Bean with values directly set -->
+    <bean id="accountPropBean" class="problem4.AccountProp">
+        <property name="number" value="999888777" />
+        <property name="holder" value="Akshay" />
+        <property name="balance" value="18000.00" />
+        <property name="type" value="Savings" />
+    </bean>
+    
+    <bean id="category" class="problem5.Category">
+        <property name="categoryId" value="101" />
+        <property name="categoryName" value="Electronics" />
+    </bean>
+
+    <bean id="item" class="problem5.Item">
+        <property name="id" value="1" />
+        <property name="name" value="Smartphone" />
+        <property name="price" value="499.99" />
+        <property name="category" ref="category" />
+    </bean>
+    
+    <bean id="appConfigBean" class="problem1.AppConfig">
+        <constructor-arg value="http://gmail.com" />
+        <constructor-arg value="testuser" />
+        <constructor-arg value="password123" />
+    </bean>
+    
+    <bean id="productItemBean" class="problem9.ProductItem">
+        <constructor-arg value="1001" />
+        <constructor-arg value="Laptop" />
+        <constructor-arg value="2500.00" />
+    </bean>
+
+    <bean id="purchaseOrderBean" class="problem9.PurchaseOrder">
+        <constructor-arg value="5001" /> <!-- int purchaseId -->
+        <constructor-arg value="2025-08-04" /> <!-- String purchaseDateStr -->
+        <constructor-arg ref="productItemBean" /> <!-- explicit reference -->
+    </bean>
+
+    <!-- Beans for problem8 -->
+    <bean id="shoppingService" class="problem8.ShoppingService"/>
+    <bean id="loggingAspect" class="problem8.LoggingAspect"/>
+
+    <!-- AOP configuration -->
+    <aop:config>
+        <aop:pointcut id="shoppingServiceMethods" expression="execution(* problem8.ShoppingService.*(..))"/>
+
+        <aop:aspect id="loggingAspect" ref="loggingAspect">
+            <aop:before pointcut-ref="shoppingServiceMethods" method="logBefore"/>
+            <aop:after-returning pointcut-ref="shoppingServiceMethods" method="logAfterReturning"/>
+            <aop:after-throwing pointcut-ref="shoppingServiceMethods" method="logAfterThrowing" throwing="ex"/>
+            <aop:around pointcut-ref="shoppingServiceMethods" method="logAround"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -1,0 +1,6 @@
+<html>
+<head><title>Success</title></head>
+<body>
+    <h2>Enrollment Successful!</h2>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Clients List</title>
+</head>
+<body>
+<h2>Clients List</h2>
+<a th:href="@{/showNewClientForm}">Add New Client</a>
+<br><br>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="client : ${listClients}">
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.email}"></td>
+        <td th:text="${client.phone}"></td>
+        <td>
+            <a th:href="@{'/showFormForUpdate/' + ${client.id}}">Edit</a>
+            <a th:href="@{'/deleteClient/' + ${client.id}}"
+               onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Conference Registration Form</title>
+    <link rel="stylesheet" href="conference_form.css">
+</head>
+<body>
+
+<h2>ONLINE CONFERENCES REGISTRATION FORM</h2>
+
+<form action="submit_form.php" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <th colspan="2" class="section-title">Personal Information</th>
+        </tr>
+        <tr>
+            <td>Full Name:</td>
+            <td><input type="text" name="fullname"></td>
+        </tr>
+        <tr>
+            <td>Email Address:</td>
+            <td><input type="text" name="email"> <br><small>format: user@example.com</small></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+            </td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td>
+                <select name="country">
+                    <option>--Select--</option>
+                    <option>United States</option>
+                    <option>India</option>
+                    <option>Canada</option>
+                    <option>United Kingdom</option>
+                    <option>Australia</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Profile Photo Upload:</td>
+            <td><input type="file" name="photo"></td>
+        </tr>
+
+        <tr>
+            <th colspan="2" class="section-title">Account Preferences</th>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="confirmpassword"></td>
+        </tr>
+        <tr>
+            <td>Interests:</td>
+            <td>
+                <input type="checkbox" name="interest" value="webdev"> Web Development
+                <input type="checkbox" name="interest" value="ai"> AI
+                <input type="checkbox" name="interest" value="cloud"> Cloud
+            </td>
+        </tr>
+        <tr>
+            <td>Preferred Contact Method:</td>
+            <td>
+                <input type="radio" name="contact" value="email"> Email
+                <input type="radio" name="contact" value="phone"> Phone
+            </td>
+        </tr>
+        <tr>
+            <td>Special Requirements / Comments:</td>
+            <td><textarea name="comments" rows="3" cols="30"></textarea></td>
+        </tr>
+
+        <tr>
+            <th colspan="2" class="section-title">Payment Details</th>
+        </tr>
+        <tr>
+            <td>Payment Method:</td>
+            <td>
+                <select name="payment">
+                    <option>--Select--</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>PayPal</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Card Number:</td>
+            <td><input type="text" name="cardnumber"></td>
+        </tr>
+        <tr>
+            <td>Expiry Date:</td>
+            <td><input type="month" name="expiry"></td>
+        </tr>
+        <tr>
+            <td>CVV:</td>
+            <td><input type="password" name="cvv" size="3"></td>
+        </tr>
+        <tr>
+            <td>Terms & Conditions:</td>
+            <td>
+                <input type="checkbox" name="terms"> I agree to Terms
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center;">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

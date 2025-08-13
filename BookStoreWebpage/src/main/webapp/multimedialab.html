@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Multimedia Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #000;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        video, audio, embed, iframe {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid #888;
+        }
+        embed {
+            height: 200px;
+        }
+        iframe {
+            height: 200px;
+        }
+        .svg-container {
+            border-top: 1px solid #000;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML5 Multimedia Lab</h1>
+     
+
+        <h3>Video (sample.mp4)</h3>
+        <video controls poster="image/bookbanner.jpg">
+            <source src="video/samplevideo.mp4" type="video/mp4">
+        </video>
+
+        <h3>Audio (sample.mp3)</h3>
+        <audio controls loop>
+            <source src="audio/sampleaudio.mp3" type="audio/mpeg">
+          
+        </audio>
+
+        <h3>Embed (document.pdf)</h3>
+        <embed src="document.pdf" type="application/pdf">
+        <a href="documents/SpringBootLabExercise.pdf">.pdf</a>
+
+        <h3>Iframe (demo.html)</h3>
+        <iframe src="demo.html" title="Demo page preview"></iframe>
+
+        <h3>Inline SVG</h3>
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+        <title id="title">Red Play Button</title>
+        <desc id="desc">A triangle-shaped play button in red color</desc>
+        <polygon points="30,20 70,50 30,80" fill="red" />
+    </svg>
+    </div>
+</body>
+</html>

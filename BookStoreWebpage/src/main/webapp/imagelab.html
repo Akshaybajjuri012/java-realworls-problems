@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Image Gallery</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f7f7f7;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    section.gallery {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    figure {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin: 0;
+    }
+    figure.highlight {
+        background-color: orange;
+    }
+    img, svg {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+    figcaption {
+        font-size: 0.9em;
+        margin-top: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        margin-top: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Responsive Image Gallery</h2>
+
+<form action="submit.php" method="post">
+<section class="gallery">
+    <!-- Standard image -->
+    <figure>
+        <img src="images/basmatiricebag.jpg" 
+             alt="Basmati rice — 5 kg bag" loading="lazy">
+        <figcaption>Basmati rice—5 kg bag</figcaption>
+    </figure>
+
+    <!-- Picture element with WebP -->
+    <figure>
+        <picture>
+            <source srcset="images/snackbox.jpg" type="image/jpg">
+            <img src="images/snacks.jpg" 
+                 alt="Assorted Snacks Box" loading="lazy">
+        </picture>
+        <figcaption>Assorted Snacks Box</figcaption>
+    </figure>
+
+    <!-- SVG inline -->
+    <figure class="highlight">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" role="img" aria-labelledby="truckTitle truckDesc">
+            <title id="truckTitle">Delivery truck</title>
+            <desc id="truckDesc">Illustration of a delivery truck</desc>
+            <rect x="50" y="30" width="120" height="50" fill="orange" stroke="black"/>
+            <rect x="10" y="30" width="40" height="50" fill="red"/>
+            <text x="70" y="60" font-size="14" fill="black">DELIVERY</text>
+            <circle cx="40" cy="80" r="10" fill="black"/>
+            <circle cx="130" cy="80" r="10" fill="black"/>
+        </svg>
+        <figcaption>Delivery truck</figcaption>
+    </figure>
+
+   
+
+    <!-- Image map that navigates to different pages -->
+    <figure>
+        <img src="images/coffeebeans.jpg" alt="Shop layout map" usemap="#shopmap" loading="lazy">
+        <map name="shopmap">
+            <area shape="rect" coords="0,0,100,150" href="rice.html" alt="Rice section">
+            <area shape="rect" coords="100,0,200,150" href="snacks.html" alt="Snacks section">
+        </map>
+        
+    </figure>
+</section>
+
+<button type="submit">Submit Lab</button>
+</form>
+
+</body>
+</html>

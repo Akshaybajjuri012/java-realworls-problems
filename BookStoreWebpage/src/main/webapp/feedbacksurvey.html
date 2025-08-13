@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Feedback Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0d70b7;
+            color: white;
+            padding: 1em;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 0.5em;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0d70b7;
+        }
+        main {
+            display: flex;
+            padding: 1em;
+        }
+        form {
+            flex: 3;
+            padding: 1em;
+            border: 1px solid #ccc;
+            margin-right: 1em;
+        }
+        aside {
+            flex: 1;
+            background-color: #fdf3d0;
+            padding: 1em;
+            border: 1px solid #ccc;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #f4f4f4;
+            margin-top: 1em;
+        }
+        section {
+            margin-bottom: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Feedback Survey</h1>
+        <p>We value your opinion. Please take a minute to share your thoughts.</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <form>
+            <section>
+                <h2>Personal Information</h2>
+                <label>Full Name *<br>
+                    <input type="text" name="fullname" required>
+                </label><br><br>
+                <label>Email Address *<br>
+                    <input type="email" name="email" required>
+                </label><br><br>
+                <label>Age<br>
+                    <input type="number" name="age" min="10" max="100">
+                </label>
+            </section>
+
+            <section>
+                <h2>Website Rating</h2>
+                <label>Design (1-10):<br>
+                    <input type="range" name="design" min="1" max="10">
+                </label><br><br>
+                <p>Content Quality:</p>
+                <label><input type="radio" name="quality" value="Excellent"> Excellent</label>
+                <label><input type="radio" name="quality" value="Good"> Good</label>
+                <label><input type="radio" name="quality" value="Average"> Average</label>
+                <label><input type="radio" name="quality" value="Poor"> Poor</label><br><br>
+
+                <label>Most visited page:<br>
+                    <select name="visited">
+                        <option>Home</option>
+                        <option>Blog</option>
+                        <option>Products</option>
+                        <option>Contact</option>
+                    </select>
+                </label>
+            </section>
+
+            <section>
+                <h2>Suggestions</h2>
+                <textarea name="suggestions"  placeholder="Write your suggestions here..."></textarea><br><br>
+                <label>
+                    <input type="checkbox" name="contact"> I agree to be contacted regarding my feedback
+                </label>
+            </section>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <aside>
+            <h3>Why your feedback matters</h3>
+            <p>Your feedback helps us improve our website experience for everyone. Thank you!</p>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 Website Survey
+    </footer>
+</body>
+</html>

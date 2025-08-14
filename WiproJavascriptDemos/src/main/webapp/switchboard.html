@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Switchboard Control</title>
+</head>
+<body>
+    <h2>Switchboard Control Simulation</h2>
+    <pre id="output"></pre>
+
+    <script>
+        const buildingName = "Sunrise Apartments";
+
+        let deviceStatus = "OFF";
+
+        const devices = ["Light", "Fan", "AC"];
+
+        let output = "";
+
+        for (var i = 0; i < devices.length; i++) {
+            deviceStatus = (deviceStatus === "OFF") ? "ON" : "OFF";
+
+            output += `Checking Switch ${i + 1}: ${devices[i]} is ${deviceStatus}\n`;
+        }
+
+        output += `All switches checked for ${buildingName}.\n`;
+
+        output += `Outside loop: var counter is ${i}\n`;
+
+        document.getElementById("output").textContent = output;
+    </script>
+</body>
+</html>

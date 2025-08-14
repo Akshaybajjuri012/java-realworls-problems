@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Share Market Portfolio Tracker (Closure Example)</title>
+</head>
+<body>
+    <h2>Share Market Portfolio Tracker (Closure Example)</h2>
+    <pre id="output"></pre>
+
+    <script>
+       
+        function createPortfolio() {
+            let portfolio = []; 
+
+            function buyShare(company, quantity, price) {
+                portfolio.push({ company, quantity, price });
+                return `Bought ${quantity} shares of ${company} at ₹${price} each.`;
+            }
+
+            function sellShare(company, quantity) {
+                let share = portfolio.find(s => s.company === company);
+                if (share) {
+                    if (quantity <= share.quantity) {
+                        share.quantity -= quantity;
+                        return `Sold ${quantity} shares of ${company}.`;
+                    } else {
+                        return `Not enough shares to sell for ${company}.`;
+                    }
+                } else {
+                    return `${company} not found in portfolio.`;
+                }
+            }
+
+            function totalValue() {
+                let value = portfolio.reduce((total, s) => total + (s.quantity * s.price), 0);
+                return `Portfolio Value: ₹${value}`;
+            }
+
+           
+            return { buyShare, sellShare, totalValue };
+        }
+
+       
+        const myPortfolio = createPortfolio();
+
+        let output = "";
+        output += myPortfolio.buyShare("TCS", 10, 3500) + "\n";
+        output += myPortfolio.buyShare("Infosys", 5, 1500) + "\n";
+        output += myPortfolio.sellShare("TCS", 3) + "\n";
+        output += myPortfolio.totalValue() + "\n";
+
+        document.getElementById("output").textContent = output;
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Income Tax Calculator (Multiple Callbacks)</title>
+</head>
+<body>
+    <h2>Income Tax Calculator<br>(Multiple Callbacks)</h2>
+
+    <form onsubmit="handleForm(event)">
+        <label>Name:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label>PAN:</label>
+        <input type="text" id="pan" required><br><br>
+
+        <label>Annual Income:</label>
+        <input type="number" id="income" min="0" required><br><br>
+
+        <button type="submit">Calculate Tax</button>
+    </form>
+
+    <hr>
+    <div id="result"></div>
+
+    <script>
+       
+        let taxRecords = [];
+
+        function calculateTax(name, pan, income, callback) {
+            let tax = 0;
+
+            if (income <= 250000) {
+                tax = 0;
+            } else if (income <= 500000) {
+                tax = income * 0.05;
+            } else if (income <= 1000000) {
+                tax = income * 0.2;
+            } else {
+                tax = income * 0.3;
+            }
+
+            callback(name, pan, income, tax);
+        }
+
+        function logToConsole(name, pan, income, tax) {
+            console.log(`Name: ${name}`);
+            console.log(`PAN: ${pan}`);
+            console.log(`Annual Income: ₹${income}`);
+            console.log(`Calculated Tax: ₹${tax}`);
+        }
+
+        function displayOnPage(name, pan, income, tax) {
+            document.getElementById("result").innerHTML = `
+                <p><b>Name:</b> ${name}</p>
+                <p><b>PAN:</b> ${pan}</p>
+                <p><b>Annual Income:</b> ₹ ${income}</p>
+                <p><b>Calculated Tax:</b> ₹ ${tax}</p>
+            `;
+        }
+
+        function saveToRecords(name, pan, income, tax) {
+            taxRecords.push({ name, pan, income, tax });
+            console.log("Saved Records:", taxRecords);
+        }
+
+        function mainCallback(name, pan, income, tax) {
+            logToConsole(name, pan, income, tax);
+            displayOnPage(name, pan, income, tax);
+            saveToRecords(name, pan, income, tax);
+        }
+
+        function handleForm(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let pan = document.getElementById("pan").value;
+            let income = parseFloat(document.getElementById("income").value);
+
+            calculateTax(name, pan, income, mainCallback);
+        }
+    </script>
+</body>
+</html>

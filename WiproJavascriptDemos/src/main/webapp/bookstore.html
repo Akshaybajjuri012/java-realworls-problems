@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+    <title>Book Store Management</title>
+</head>
+<body>
+    <h2>Book Store Management</h2>
+    <pre id="output"></pre>
+
+    <script>
+        let output = "";
+
+        let books = [
+            { title: "JavaScript Basics", author: "Anu", price: 450, available: true },
+            { title: "HTML & CSS", author: "Devi", price: 350, available: false }
+        ];
+
+        output += "All Books:\n";
+        for (let book of books) {
+            output += `Title: ${book.title}, Author: ${book.author}, Price: ${book.price}, Available: ${book.available} ₹\n`;
+        }
+
+        output += "\nAvailable Books:\n";
+        for (let book of books) {
+            if (book.available) {
+                output += `Title: ${book.title}, Author: ${book.author}, Price: ${book.price} ₹\n`;
+            }
+        }
+
+        books.push({ title: "Node.js Guide", author: "Ravi", price: 600, available: true });
+        output += "\nAfter Adding:\n";
+        output += books.map(b => b.title).join(", ") + "\n";
+
+        let bookToUpdate = books.find(b => b.title === "JavaScript Basics");
+        if (bookToUpdate) {
+            bookToUpdate.price = 500;
+        }
+        output += "\nAfter Price Update:\n";
+        output += `${bookToUpdate.title} - ${bookToUpdate.price} ₹\n`;
+
+        books = books.filter(b => b.title !== "JavaScript Basics");
+        output += "\nAfter Deletion:\n";
+        output += books.map(b => b.title).join(", ") + "\n";
+
+        document.getElementById("output").textContent = output;
+    </script>
+</body>
+</html>

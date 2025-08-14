@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IIFE Inventory Manager</title>
+</head>
+<body>
+  <h1>Inventory Operations</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const out = document.getElementById("output");
+
+    function log(message) {
+      console.log(message);
+      out.textContent += message + "\n";
+    }
+
+    const inventory = (function () {
+      let stock = 0; 
+
+      return {
+        getStock: function () {
+          return stock;
+        },
+        addStock: function (quantity) {
+          if (quantity > 0) {
+            stock += quantity;
+            log(`${quantity} items added. Current stock: ${stock}`);
+          } else {
+            log("Quantity must be positive.");
+          }
+        },
+        sell: function (quantity) {
+          if (quantity > stock) {
+            log("Insufficient stock");
+          } else {
+            stock -= quantity;
+            log(`${quantity} items sold. Current stock: ${stock}`);
+          }
+        }
+      };
+    })();
+
+    let addQty = parseInt(prompt("Enter quantity to add to stock:"), 10);
+    inventory.addStock(addQty);
+
+    let sellQty = parseInt(prompt("Enter quantity to sell:"), 10);
+    inventory.sell(sellQty);
+
+    log("Final stock: " + inventory.getStock());
+  </script>
+</body>
+</html>

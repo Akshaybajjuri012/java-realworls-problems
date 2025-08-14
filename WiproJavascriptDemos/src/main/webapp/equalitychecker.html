@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equality Comparisons</title>
+</head>
+<body>
+<script>
+    let value1 = prompt("Enter the first value:");
+    let value2 = prompt("Enter the second value:");
+
+    let numValue1 = Number(value1);
+    let numValue2 = Number(value2);
+
+    let type1 = typeof value1; 
+    let type2 = typeof numValue2; 
+
+    let eq = (value1 == numValue2);
+    let strictEq = (value1 === numValue2);
+    let neq = (value1 != numValue2);
+    let strictNeq = (value1 !== numValue2);
+
+    let output = "";
+    output += `First Value: ${value1} (${type1})\n`;
+    output += `Second Value: ${value2} (string from prompt, then converted to number: ${numValue2} - type: ${typeof numValue2})\n\n`;
+
+    output += `Using == : ${eq} → Equality ignores type\n`;
+    output += `Using === : ${strictEq} → Strict equality checks type too\n`;
+    output += `Using != : ${neq} → Values considered equal so result is false\n`;
+    output += `Using !== : ${strictNeq} → Strict inequality because types differ\n`;
+
+    alert(output);
+</script>
+</body>
+</html>

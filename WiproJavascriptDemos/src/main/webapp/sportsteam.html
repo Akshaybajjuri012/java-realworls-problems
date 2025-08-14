@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Team Player Details</title>
+</head>
+<body>
+    <h2>Sports Team Player Details</h2>
+    <pre id="output"></pre>
+
+    <script>
+        const player1 = {
+            name: "Virat Kohli",
+            age: 36,
+            sport: "Cricket",
+            stats: {
+                matches: 500,
+                runs: 25000,
+                average: 57.2
+            }
+        };
+
+        const player2 = {
+            name: "Lionel Messi",
+            age: 38,
+            sport: "Football",
+            stats: {
+                matches: 800,
+                goals: 720,
+                assists: 300
+            }
+        };
+
+        let outputText = "";
+
+        const { name, sport, stats: { matches, runs, average } } = player1;
+
+        const players = [player1, player2];
+
+        const [p1, p2] = players;
+
+        outputText += `Player ${p1.name} plays ${p1.sport}.\n`;
+        outputText += `Matches: ${p1.stats.matches} | Runs: ${p1.stats.runs} | Batting Average: ${p1.stats.average}\n\n`;
+
+        outputText += `Player ${p2.name} plays ${p2.sport}.\n`;
+        outputText += `Matches: ${p2.stats.matches} | Goals: ${p2.stats.goals} | Assists: ${p2.stats.assists}\n`;
+
+        document.getElementById("output").textContent = outputText;
+    </script>
+</body>
+</html>

@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GroceryList from "./GroceryList";
+import Car from "./Car";   
+import Phone from "./Phone";
+import SweetsList from "./SweetsList";
+import Electronics from "./Electronics";
+import CanteenMenu from "./CanteenMenu";
+import JuiceList from "./JuiceList";
+import Restaurant from "./Restaurant";
+import TempleList from "./TempleList";
+import TailorShop from "./TailorShop";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const items = ["Rice", "Wheat", "Sugar", "Milk", "Oil"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GroceryList items={items} />
+      <hr />
+
+      <Car brand="Toyota" model="Fortuner" color="Black" year="2022" />
+
+      <hr />
+      <Phone />
+
+      <hr />
+      <SweetsList />
+
+      <hr />
+      <Electronics />
+      <hr />
+      <CanteenMenu />
+      <hr />
+      <JuiceList />
+      <hr />
+       <Restaurant />
+      <hr />
+       <TempleList />
+      <hr />
+       <TailorShop />
     </div>
   );
 }

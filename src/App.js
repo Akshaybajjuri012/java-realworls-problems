@@ -9,7 +9,14 @@ import JuiceList from "./JuiceList";
 import Restaurant from "./Restaurant";
 import TempleList from "./TempleList";
 import TailorShop from "./TailorShop";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Fruits from "./Fruits";
+import TelevisionManager from "./TelevisionManager";
+import MarriageForm from "./MarriageForm";
+import AccessoriesForm from "./AccessoriesForm";
+import BakingItemsForm from "./BakingItemsForm";
+import FlightBooking from "./FlightBooking";
+import MovieForm from "./MovieForm";
+import "bootstrap/dist/css/bootstrap.min.css"; 
 
 function App() {
   const items = ["Rice", "Wheat", "Sugar", "Milk", "Oil"];
@@ -39,6 +46,20 @@ function App() {
        <TempleList />
       <hr />
        <TailorShop />
+      <hr />
+       <Fruits />
+      <hr />
+       <TelevisionManager />
+      <hr />
+       <MarriageForm />
+       <hr />
+       <AccessoriesForm />
+       <hr />
+       <BakingItemsForm />
+       <hr />
+       <FlightBooking />
+       <hr />
+        <MovieForm />
     </div>
   );
 }

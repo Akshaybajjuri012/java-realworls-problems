@@ -1,8 +1,8 @@
 import React from "react";
-import Juice from "./Juice";
+import Juice from "./Juice"; // Importing child component
 
 const JuiceList = () => {
-  // Array of juice objects
+  // Array of juice objects (data for our table)
   const juices = [
     { id: 1, name: "Grapes Juice", price: 80 },
     { id: 2, name: "Apple Juice", price: 100 },
@@ -13,6 +13,8 @@ const JuiceList = () => {
   return (
     <div>
       <h2>Juice Menu</h2>
+
+      {/* Table with simple inline CSS for borders */}
       <table border="1" cellPadding="8" style={{ borderCollapse: "collapse" }}>
         <thead>
           <tr>
@@ -21,9 +23,16 @@ const JuiceList = () => {
             <th>Price</th>
           </tr>
         </thead>
+
         <tbody>
+          {/* Loop through juices array and render <Juice /> for each item */}
           {juices.map((juice) => (
-            <Juice key={juice.id} id={juice.id} name={juice.name} price={juice.price} />
+            <Juice
+              key={juice.id}     // unique key for each row
+              id={juice.id}      // pass id as prop
+              name={juice.name}  // pass name as prop
+              price={juice.price} // pass price as prop
+            />
           ))}
         </tbody>
       </table>

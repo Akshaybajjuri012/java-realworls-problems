@@ -16,6 +16,11 @@ import AccessoriesForm from "./AccessoriesForm";
 import BakingItemsForm from "./BakingItemsForm";
 import FlightBooking from "./FlightBooking";
 import MovieForm from "./MovieForm";
+import ProductDisplay from "./ProductDisplay";
+import FurnitureStore from "./FurnitureStore";
+import FestivalApp from "./FestivalApp";
+import RestaurantForm from "./RestaurantRegistrationForm";
+import FruitCommunication from "./FruitCommunication"
 import "bootstrap/dist/css/bootstrap.min.css"; 
 
 function App() {
@@ -60,6 +65,16 @@ function App() {
        <FlightBooking />
        <hr />
         <MovieForm />
+        <hr />
+        <ProductDisplay />
+        <hr />
+        <FurnitureStore />
+        <hr />
+        <FestivalApp />
+        <hr />
+        <RestaurantForm />
+        <hr />
+        <FruitCommunication />
     </div>
   );
 }

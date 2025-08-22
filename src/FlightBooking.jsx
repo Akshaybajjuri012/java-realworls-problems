@@ -1,5 +1,4 @@
 import React, { Component, createRef } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 
 // Controlled Component
@@ -14,11 +13,11 @@ class FlightBookingControlled extends Component {
       gender: "",
       mealPreference: "Veg",
       specialRequest: "",
-      submitted: false // flag to check if form was submitted
+      submitted: false, // flag to check if form was submitted
     };
   }
 
-  // Handle change for all inputs (updates state)
+  // Handle change for all inputs (updates state in real time)
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -32,14 +31,12 @@ class FlightBookingControlled extends Component {
   render() {
     return (
       <div className="col-md-6">
-        <h3>Controlled Flight Booking Form</h3>
+        <h3 className="mb-3">Controlled Flight Booking Form</h3>
 
-        {/* Controlled Form */}
         <form onSubmit={this.handleSubmit}>
-          
-          {/* Passenger Name Input */}
+          {/* Passenger Name */}
           <div className="mb-3">
-            <label>Passenger Name</label>
+            <label className="form-label">Passenger Name</label>
             <input
               type="text"
               className="form-control"
@@ -49,9 +46,9 @@ class FlightBookingControlled extends Component {
             />
           </div>
 
-          {/* Email Input */}
+          {/* Email */}
           <div className="mb-3">
-            <label>Email</label>
+            <label className="form-label">Email</label>
             <input
               type="email"
               className="form-control"
@@ -61,32 +58,36 @@ class FlightBookingControlled extends Component {
             />
           </div>
 
-          {/* Gender (Radio Buttons) */}
+          {/* Gender */}
           <div className="mb-3">
-            <label>Gender</label>
-            <br />
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              onChange={this.handleChange}
-            />{" "}
-            Male
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              className="ms-2"
-              onChange={this.handleChange}
-            />{" "}
-            Female
+            <label className="form-label d-block">Gender</label>
+            <div className="form-check form-check-inline">
+              <input
+                type="radio"
+                className="form-check-input"
+                name="gender"
+                value="Male"
+                onChange={this.handleChange}
+              />
+              <label className="form-check-label">Male</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                type="radio"
+                className="form-check-input"
+                name="gender"
+                value="Female"
+                onChange={this.handleChange}
+              />
+              <label className="form-check-label">Female</label>
+            </div>
           </div>
 
-          {/* Meal Preference (Dropdown) */}
+          {/* Meal Preference */}
           <div className="mb-3">
-            <label>Meal Preference</label>
+            <label className="form-label">Meal Preference</label>
             <select
-              className="form-control"
+              className="form-select"
               name="mealPreference"
               value={this.state.mealPreference}
               onChange={this.handleChange}
@@ -96,18 +97,18 @@ class FlightBookingControlled extends Component {
             </select>
           </div>
 
-          {/* Special Request (Textarea) */}
+          {/* Special Request */}
           <div className="mb-3">
-            <label>Special Request</label>
+            <label className="form-label">Special Request</label>
             <textarea
               className="form-control"
               name="specialRequest"
+              rows="3"
               value={this.state.specialRequest}
               onChange={this.handleChange}
             />
           </div>
 
-          {/* Submit Button */}
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
@@ -115,8 +116,8 @@ class FlightBookingControlled extends Component {
 
         {/* Display submitted data in a table */}
         {this.state.submitted && (
-          <table className="table table-bordered mt-3">
-            <thead>
+          <table className="table table-bordered table-striped mt-3">
+            <thead className="table-dark">
               <tr>
                 <th>Passenger Name</th>
                 <th>Email</th>
@@ -136,7 +137,6 @@ class FlightBookingControlled extends Component {
     );
   }
 }
-
 
 // Uncontrolled Component
 class FlightBookingUncontrolled extends Component {
@@ -165,50 +165,47 @@ class FlightBookingUncontrolled extends Component {
         source: this.sourceRef.current.value,
         destination: this.destinationRef.current.value,
         date: this.dateRef.current.value,
-        termsAccepted: this.termsRef.current.checked
-      }
+        termsAccepted: this.termsRef.current.checked,
+      },
     });
   };
 
   render() {
     return (
       <div className="col-md-6">
-        <h3>Uncontrolled Flight Booking Form</h3>
+        <h3 className="mb-3">Uncontrolled Flight Booking Form</h3>
 
-        {/* Uncontrolled Form */}
         <form onSubmit={this.handleSubmit}>
-          
           {/* Flight Number */}
           <div className="mb-3">
-            <label>Flight Number</label>
+            <label className="form-label">Flight Number</label>
             <input type="text" className="form-control" ref={this.flightNumberRef} />
           </div>
 
           {/* Source */}
           <div className="mb-3">
-            <label>Source</label>
+            <label className="form-label">Source</label>
             <input type="text" className="form-control" ref={this.sourceRef} />
           </div>
 
           {/* Destination */}
           <div className="mb-3">
-            <label>Destination</label>
+            <label className="form-label">Destination</label>
             <input type="text" className="form-control" ref={this.destinationRef} />
           </div>
 
           {/* Travel Date */}
           <div className="mb-3">
-            <label>Travel Date</label>
+            <label className="form-label">Travel Date</label>
             <input type="date" className="form-control" ref={this.dateRef} />
           </div>
 
           {/* Terms Accepted */}
-          <div className="mb-3 form-check">
+          <div className="form-check mb-3">
             <input type="checkbox" className="form-check-input" ref={this.termsRef} />
             <label className="form-check-label">Terms Accepted</label>
           </div>
 
-          {/* Submit Button */}
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
@@ -216,13 +213,21 @@ class FlightBookingUncontrolled extends Component {
 
         {/* Display submitted data in a Bootstrap Card */}
         {this.state.submitted && (
-          <div className="card mt-3">
+          <div className="card mt-3 shadow-sm">
             <div className="card-body">
-              <h5>Flight Details</h5>
-              <p><b>Flight Number:</b> {this.state.details.flightNumber}</p>
-              <p><b>Source:</b> {this.state.details.source}</p>
-              <p><b>Destination:</b> {this.state.details.destination}</p>
-              <p><b>Date:</b> {this.state.details.date}</p>
+              <h5 className="card-title">Flight Details</h5>
+              <p>
+                <b>Flight Number:</b> {this.state.details.flightNumber}
+              </p>
+              <p>
+                <b>Source:</b> {this.state.details.source}
+              </p>
+              <p>
+                <b>Destination:</b> {this.state.details.destination}
+              </p>
+              <p>
+                <b>Date:</b> {this.state.details.date}
+              </p>
               <p>
                 <b>Terms Accepted:</b>{" "}
                 {this.state.details.termsAccepted ? "Yes" : "No"}
@@ -235,13 +240,12 @@ class FlightBookingUncontrolled extends Component {
   }
 }
 
-
 // Parent Component
 class App extends Component {
   render() {
     return (
       <div className="container mt-4">
-        <div className="row">
+        <div className="row g-4">
           {/* Left: Controlled Form | Right: Uncontrolled Form */}
           <FlightBookingControlled />
           <FlightBookingUncontrolled />

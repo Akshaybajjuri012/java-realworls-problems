@@ -2,32 +2,27 @@ import React from "react";
 
 const ServiceCard = ({ serviceName, price, fabricsAvailable }) => {
   return (
-    // 🔹 Bootstrap grid column (each card takes 4 columns out of 12 in a row)
+    // Each card takes 4 columns in a Bootstrap grid
     <div className="col-md-4 mb-3">
-    
-      {/* 🔹 Bootstrap Card */}
-      <div className="card shadow-sm">
-        <div className="card-body bg-warning">
-
-          
+      {/* Bootstrap Card */}
+      <div className="card shadow-sm h-100">
+        <div className="card-body bg-warning rounded">
           {/* Service Name */}
           <h5 className="card-title">{serviceName}</h5>
 
-          {/* Price Display */}
+          {/* Price */}
           <p className="card-text">
-            <b>Price:</b>{" "}
-            {/* Price styled in red and bold */}
+            <strong>Price:</strong>{" "}
             <span className="text-danger fw-bold">${price}</span>
           </p>
 
-          {/* Fabrics List */}
+          {/* Fabrics */}
           <p className="card-text">
             <strong>Fabrics Available:</strong>
           </p>
-          <ul>
-            {/* Nested Loop: Iterating over fabricsAvailable array */}
+          <ul className="list-unstyled">
             {fabricsAvailable.map((fabric, index) => (
-              <li key={index}>{fabric}</li>
+              <li key={index}>✔️ {fabric}</li>
             ))}
           </ul>
         </div>

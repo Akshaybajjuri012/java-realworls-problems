@@ -28,7 +28,7 @@ class MovieForm extends Component {
   // Lifecycle Methods for Logging
   static getDerivedStateFromProps(props, state) {
     console.log("getDerivedStateFromProps executed");
-    return null; // No change to state
+    return null;
   }
 
   componentDidMount() {
@@ -37,12 +37,12 @@ class MovieForm extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("shouldComponentUpdate executed");
-    return true; // Always re-render when state changes
+    return true;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("getSnapshotBeforeUpdate executed");
-    return null; // Snapshot not used here
+    return null;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -74,12 +74,10 @@ class MovieForm extends Component {
     const { movieTitle, director, releaseYear, genre, rating, description, platforms } =
       this.state;
 
-    // Collect selected streaming platforms
     const selectedPlatforms = Object.keys(platforms).filter(
       (platform) => platforms[platform]
     );
 
-    // New movie entry
     const newMovie = {
       movieTitle,
       director,
@@ -90,7 +88,6 @@ class MovieForm extends Component {
       platforms: selectedPlatforms,
     };
 
-    // Update movie list + reset form fields
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie],
       movieTitle: "",
@@ -112,147 +109,162 @@ class MovieForm extends Component {
     console.log("render executed");
 
     return (
-      <div className="container mt-4">
-        {/* Bootstrap card to hold the form */}
-        <div className="card p-4 shadow">
-          <h3>Add Movie</h3>
-          <form onSubmit={this.handleSubmit}>
-            {/* Movie Title Input */}
-            <div className="mb-3">
-              <label>Movie Title</label>
-              <input
-                type="text"
-                className="form-control"
-                name="movieTitle"
-                value={this.state.movieTitle}
-                onChange={this.handleChange}
-                required
-              />
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            {/* Bootstrap Card for Form */}
+            <div className="card shadow-lg border-0">
+              <div className="card-body">
+                <h3 className="card-title text-center mb-4">Add Movie</h3>
+                <form onSubmit={this.handleSubmit}>
+                  {/* Movie Title */}
+                  <div className="mb-3">
+                    <label className="form-label">Movie Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="movieTitle"
+                      value={this.state.movieTitle}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Director */}
+                  <div className="mb-3">
+                    <label className="form-label">Director</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="director"
+                      value={this.state.director}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Release Year */}
+                  <div className="mb-3">
+                    <label className="form-label">Release Year</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="releaseYear"
+                      value={this.state.releaseYear}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Genre */}
+                  <div className="mb-3">
+                    <label className="form-label">Genre</label>
+                    <select
+                      className="form-select"
+                      name="genre"
+                      value={this.state.genre}
+                      onChange={this.handleChange}
+                    >
+                      <option>Action</option>
+                      <option>Comedy</option>
+                      <option>Drama</option>
+                      <option>Sci-Fi</option>
+                      <option>Horror</option>
+                    </select>
+                  </div>
+
+                  {/* Rating */}
+                  <div className="mb-3">
+                    <label className="form-label">Rating</label>
+                    <div>
+                      {[1, 2, 3, 4, 5].map((num) => (
+                        <div key={num} className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="rating"
+                            value={num}
+                            checked={this.state.rating === String(num)}
+                            onChange={this.handleChange}
+                          />
+                          <label className="form-check-label">{num}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div className="mb-3">
+                    <label className="form-label">Description</label>
+                    <textarea
+                      className="form-control"
+                      rows="3"
+                      name="description"
+                      value={this.state.description}
+                      onChange={this.handleChange}
+                    ></textarea>
+                  </div>
+
+                  {/* Platforms */}
+                  <div className="mb-3">
+                    <label className="form-label">Available on Streaming Platforms</label>
+                    <div>
+                      {Object.keys(this.state.platforms).map((platform) => (
+                        <div key={platform} className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name={platform}
+                            checked={this.state.platforms[platform]}
+                            onChange={this.handleCheckboxChange}
+                          />
+                          <label className="form-check-label">{platform}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="d-grid">
+                    <button type="submit" className="btn btn-primary btn-lg">
+                      Add Movie
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
 
-            {/* Director Input */}
-            <div className="mb-3">
-              <label>Director</label>
-              <input
-                type="text"
-                className="form-control"
-                name="director"
-                value={this.state.director}
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-
-            {/* Release Year Input */}
-            <div className="mb-3">
-              <label>Release Year</label>
-              <input
-                type="number"
-                className="form-control"
-                name="releaseYear"
-                value={this.state.releaseYear}
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-
-            {/* Genre Dropdown */}
-            <div className="mb-3">
-              <label>Genre</label>
-              <select
-                className="form-control"
-                name="genre"
-                value={this.state.genre}
-                onChange={this.handleChange}
-              >
-                <option>Action</option>
-                <option>Comedy</option>
-                <option>Drama</option>
-                <option>Sci-Fi</option>
-                <option>Horror</option>
-              </select>
-            </div>
-
-            {/* Rating as radio buttons */}
-            <div className="mb-3">
-              <label>Rating</label>
-              <br />
-              {[1, 2, 3, 4, 5].map((num) => (
-                <label key={num} className="me-3">
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={num}
-                    checked={this.state.rating === String(num)}
-                    onChange={this.handleChange}
-                  />{" "}
-                  {num}
-                </label>
-              ))}
-            </div>
-
-            {/* Description Textarea */}
-            <div className="mb-3">
-              <label>Description</label>
-              <textarea
-                className="form-control"
-                name="description"
-                value={this.state.description}
-                onChange={this.handleChange}
-              ></textarea>
-            </div>
-
-            {/* Checkboxes for Streaming Platforms */}
-            <div className="mb-3">
-              <label>Available on Streaming Platforms</label>
-              <br />
-              {Object.keys(this.state.platforms).map((platform) => (
-                <label key={platform} className="me-3">
-                  <input
-                    type="checkbox"
-                    name={platform}
-                    checked={this.state.platforms[platform]}
-                    onChange={this.handleCheckboxChange}
-                  />{" "}
-                  {platform}
-                </label>
-              ))}
-            </div>
-
-            {/* Submit Button */}
-            <button type="submit" className="btn btn-primary">
-              Add Movie
-            </button>
-          </form>
+            {/* Movies Table */}
+            {this.state.movies.length > 0 && (
+              <div className="table-responsive mt-4">
+                <table className="table table-hover table-striped align-middle">
+                  <thead className="table-dark">
+                    <tr>
+                      <th>Title</th>
+                      <th>Director</th>
+                      <th>Release Year</th>
+                      <th>Genre</th>
+                      <th>Rating</th>
+                      <th>Streaming Platforms</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.movies.map((movie, index) => (
+                      <tr key={index}>
+                        <td>{movie.movieTitle}</td>
+                        <td>{movie.director}</td>
+                        <td>{movie.releaseYear}</td>
+                        <td>{movie.genre}</td>
+                        <td>{movie.rating}</td>
+                        <td>{movie.platforms.join(", ")}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
         </div>
-
-        {/* Table to display added movies */}
-        {this.state.movies.length > 0 && (
-          <table className="table table-bordered mt-4">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Director</th>
-                <th>Release Year</th>
-                <th>Genre</th>
-                <th>Rating</th>
-                <th>Available on Streaming Platforms</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.movies.map((movie, index) => (
-                <tr key={index}>
-                  <td>{movie.movieTitle}</td>
-                  <td>{movie.director}</td>
-                  <td>{movie.releaseYear}</td>
-                  <td>{movie.genre}</td>
-                  <td>{movie.rating}</td>
-                  <td>{movie.platforms.join(", ")}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
       </div>
     );
   }

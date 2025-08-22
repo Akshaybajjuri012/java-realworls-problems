@@ -1,43 +1,25 @@
 import React from "react";
-import ServiceCard from "./ServiceCard"; // Import child component
+import ServiceCard from "./ServiceCard";
 
 const TailorShop = () => {
-  // Array of tailoring services (outer loop data)
+  // Services array
   const services = [
-    {
-      serviceName: "Shirts",
-      price: 20,
-      fabricsAvailable: ["Cotton", "Linen", "Polyester"] // inner loop
-    },
-    {
-      serviceName: "Pants",
-      price: 30,
-      fabricsAvailable: ["Denim", "Twill", "Corduroy"]
-    },
-    {
-      serviceName: "Lehenga",
-      price: 150,
-      fabricsAvailable: ["Silk", "Georgette", "Velvet"]
-    },
-    {
-      serviceName: "Blouse",
-      price: 40,
-      fabricsAvailable: ["Cotton", "Silk", "Chiffon"]
-    }
+    { serviceName: "Shirts", price: 20, fabricsAvailable: ["Cotton", "Linen", "Polyester"] },
+    { serviceName: "Pants", price: 30, fabricsAvailable: ["Denim", "Twill", "Corduroy"] },
+    { serviceName: "Lehenga", price: 150, fabricsAvailable: ["Silk", "Georgette", "Velvet"] },
+    { serviceName: "Blouse", price: 40, fabricsAvailable: ["Cotton", "Silk", "Chiffon"] }
   ];
 
   return (
     <div className="container mt-4">
       {/* Heading */}
-      <h2 className="text-center mb-4">Tailoring Shop Services</h2>
+      <h2 className="text-center mb-4">👗 Tailoring Shop Services</h2>
 
-      {/* Bootstrap Row → Cards will be arranged in grid layout */}
+      {/* Bootstrap Row → Responsive Grid */}
       <div className="row">
-        {/*  Looping through services (outer loop) */}
         {services.map((service, index) => (
-          // Passing each service as props to child ServiceCard
           <ServiceCard
-            key={index} // unique key for React
+            key={index}
             serviceName={service.serviceName}
             price={service.price}
             fabricsAvailable={service.fabricsAvailable}

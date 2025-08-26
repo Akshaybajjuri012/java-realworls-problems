@@ -21,6 +21,24 @@ import FurnitureStore from "./FurnitureStore";
 import FestivalApp from "./FestivalApp";
 import RestaurantForm from "./RestaurantRegistrationForm";
 import FruitCommunication from "./FruitCommunication"
+import ChessTournamentForm from "./ChessTournamentForm";
+import HockeyTournamentForm from "./HockeyTournamentRegisForm";
+import TailoringInventory from "./TailoringInventory";
+import FootballPlayers from "./FootballPlayers";
+import { PowerCutProvider } from "./PowerCutContext";
+import SendAnnouncement from "./SendAnnouncement";
+import AnnouncementList from "./AnnouncementList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TaxNavbar from "./TaxNavbar";
+import Home from "./pages/Home";
+import AddTaxpayer from "./pages/AddTaxpayer";
+import TaxpayerList from "./pages/TaxpayerList";
+import CalculateTax from "./pages/CalculateTax";
+import TaxRates from "./pages/TaxRates";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import FAQ from "./pages/FAQ";
+import NotFound from "./pages/NotFound";
 import "bootstrap/dist/css/bootstrap.min.css"; 
 
 function App() {
@@ -75,6 +93,34 @@ function App() {
         <RestaurantForm />
         <hr />
         <FruitCommunication />
+        <hr />
+        <ChessTournamentForm />
+        <hr />
+        <HockeyTournamentForm />
+        <hr />
+        <TailoringInventory />
+        <hr />
+        <FootballPlayers />
+        <hr />
+         <PowerCutProvider>
+          <SendAnnouncement />
+          <AnnouncementList />
+        </PowerCutProvider>
+        <hr />
+         <Router>
+      <TaxNavbar />  
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add-taxpayer" element={<AddTaxpayer />} />
+        <Route path="/taxpayer-list" element={<TaxpayerList />} />
+        <Route path="/calculate-tax" element={<CalculateTax />} />
+        <Route path="/tax-rates" element={<TaxRates />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
     </div>
   );
 }
